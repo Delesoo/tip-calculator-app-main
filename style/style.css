@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;   
+}
+
+@font-face {
+    font-family: space;
+    src: url(/fonts/SpaceMono-Regular.ttf);
+}
+
+
+body{
+    background-color: hsl(185, 41%, 84%);
+    font-family: space;
+    font-size: 14px;
+    font-weight: 700;
+    color: hsl(186, 14%, 43%);
+}
+.maincontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.boxcontainer{
+    position: relative;
+    background-color: #ffffff;
+    width: 700px;
+    height: 400px;
+    margin-top: 50px;
+    border-radius: 30px;
+    text-align: left;
+}
+
+.input-number{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+.input-number label{
+    display: block;
+    margin-bottom: 6px;
+}
+.input-number input[type="number"]{
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    width: 300px;
+    height: 40px;
+    border-radius: 6px;
+    outline-color: hsl(172, 67%, 45%);
+    text-align: right;
+    font-size: 24px;
+    font-family: space;
+}
+.input-number2{
+    margin-top: 30px;
+    margin-left: 40px;
+}
+.input-number3{
+    position: relative;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+.input-number3 label{
+    position: relative;
+    display: block;
+    margin-bottom: 6px;
+}
+.input-number3 label img{
+    position: absolute;
+    top: 40px;
+    left: 12px;
+    z-index: 1;
+    pointer-events: none;
+    
+}
+.input-number label img{
+    position: absolute;
+    top: 68px;
+    left: 52px;
+    pointer-events: none;
+    
+}
+.input-number3 input[type="number"]{
+    position: relative;
+    background-color: hsl(189, 41%, 97%);
+    border: none;
+    width: 300px;
+    height: 40px;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 24px;
+    outline-color: hsl(172, 67%, 45%);
+    font-family: space;
+}
+button#calculate{
+    display: none;
+}
+.tip-btn{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 20px;
+    width: 300px;
+    height: 90px;
+
+}
+.tip-btn button{
+    border-radius: 6px;
+    background-color: hsl(183, 100%, 15%);
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: space;
+}
+.tip-btn button:hover{
+    color: hsl(183, 100%, 15%);
+    background-color: hsl(172, 67%, 45%);
+    
+}
+.amountcontainer{
+   color: #ffffff; 
+   position: absolute;
+   top: 6%;
+   right: 4%;
+   text-align: center;
+   background: hsl(183, 100%, 15%);
+   width: 300px;
+   height: 350px;
+   border-radius: 10px;
+}
+.tipAmount{
+    margin-top: 40px;
+    margin-left: 20px;
+    text-align: left;
+}
+.amountPerPerson{
+    text-align: left;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+#tipAmount, #amountPerPerson{
+    position: absolute;
+    right: 10%;
+    font-size: 28px;
+    color: hsl(172, 67%, 45%);
+
+}
+#resetButton{ 
+    margin-top: 140px;
+    width: 230px;
+    margin-bottom: 20px;
+    height: 40px;
+    background-color: hsl(172, 67%, 45%);
+    border-radius: 6px;
+    font-family: space;
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(183, 100%, 15%);
+    cursor: pointer;
+    border: none;
+}
+#resetButton:hover{
+    background-color: hsl(185, 41%, 84%);
+}
+#error-message{
+    position: absolute;
+    left: 28%;
+    top: 0%;
+    color: #e80000a0;
+    font-weight: 700;
+   
+}
