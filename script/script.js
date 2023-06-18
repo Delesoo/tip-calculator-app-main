@@ -42,6 +42,17 @@ function resetCalculator() {
 
 window.addEventListener("load", function () {
   const tipButtons = document.querySelectorAll(".tip-btn button");
+  const customInput = document.getElementById("customInput");
+
+  customInput.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+      const customPercentage = parseInt(customInput.value);
+      if (!isNaN(customPercentage)) {
+        setTipPercentage(customPercentage);
+        customInput.value = "";
+      }
+    }
+  });
 
   tipButtons.forEach(function (button) {
     button.addEventListener("click", function () {
