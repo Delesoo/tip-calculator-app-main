@@ -1,3 +1,5 @@
+    @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
     *{
         margin: 0;
         padding: 0;
@@ -5,15 +7,15 @@
         text-decoration: none;   
     }
 
-    @font-face {
+    /* @font-face {
         font-family: space;
         src: url(/fonts/SpaceMono-Regular.ttf);
-    }
+    } */
 
 
     body{
         background-color: hsl(185, 41%, 84%);
-        font-family: space;
+        font-family: 'Space Mono', monospace;
         font-size: 14px;
         font-weight: 700;
         color: hsl(186, 14%, 43%);
@@ -52,7 +54,7 @@
         outline-color: hsl(172, 67%, 45%);
         text-align: right;
         font-size: 24px;
-        font-family: space;
+        font-family: 'Space Mono', monospace;
     }
     .input-number2{
         margin-top: 30px;
@@ -93,7 +95,7 @@
         text-align: right;
         font-size: 24px;
         outline-color: hsl(172, 67%, 45%);
-        font-family: space;
+        font-family: 'Space Mono', monospace;
     }
     button#calculate{
         display: none;
@@ -112,7 +114,7 @@
         background-color: hsl(189, 41%, 97%);
         color: hsl(183, 100%, 15%);
         font-size: 20px;
-        font-family: space;
+        font-family: 'Space Mono', monospace;
         width: 100px;
         text-align: right;
         font-weight: 700;
@@ -126,7 +128,7 @@
         color: #ffffff;
         font-size: 20px;
         cursor: pointer;
-        font-family: space;
+        font-family: 'Space Mono', monospace;
     }
     .tip-btn button:hover{
         color: hsl(183, 100%, 15%);
@@ -170,7 +172,7 @@
         height: 40px;
         background-color: hsl(172, 67%, 45%);
         border-radius: 6px;
-        font-family: space;
+        font-family: 'Space Mono', monospace;
         font-size: 16px;
         font-weight: 700;
         color: hsl(183, 100%, 15%);
@@ -189,54 +191,64 @@
     }
     @media only screen and (max-width: 667px) {
 
-        .boxcontainer {
-            position: relative;
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            height: 100%;
-            width: 100%;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
-        .input-number {
-            position: absolute;
-            top: 0;
+        .boxcontainer {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 40px;
+        }
+
+        .input-number{
+            margin-right: 10%;
         }
 
         .input-number2 {
             position: absolute;
             top: 14%;
+            right: 6%;
         }
 
         .tip-btn{
             grid-template-columns: repeat(2, 1fr);
+            height: 50px;
         }
+
         .tip-btn input{
             width: 150px;
+            
         }
 
         .input-number3 {
             position: absolute;
             top: 40%;
-        }
-
-        #calculate {
-            width: 100%;
+            right: 6%;
         }
 
         .amountcontainer {
             position: absolute;
-            top: 60%;
-            bottom: 0;
-            left: 0;
-            left: 16%;
-            height: 250px;
+            width: 300px;
+            height: 257px;
+            left: 22px;
+            top: 400px;
+            
         }
         .input-number label img {
             position: absolute;
-            top: 60%;
-            left: 4%;
+            top: 10%;
+            left: 10%;
             
         }
     }
