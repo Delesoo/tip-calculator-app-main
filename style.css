@@ -129,11 +129,16 @@
         font-size: 20px;
         cursor: pointer;
         font-family: 'Space Mono', monospace;
+        border: none;   
     }
     .tip-btn button:hover{
         color: hsl(183, 100%, 15%);
         background-color: hsl(172, 67%, 45%);
         
+    }
+    .tip-btn button.active{
+        background-color: hsl(172, 67%, 45%);
+        color: hsl(183, 100%, 15%);
     }
     .amountcontainer{
         color: #ffffff; 
@@ -163,6 +168,10 @@
         color: hsl(172, 67%, 45%);
 
     }
+    #customInput{
+        border: none;
+    }
+
     #resetButton{ 
         position: absolute;
         top: 80%;
@@ -186,6 +195,13 @@
         position: absolute;
         left: 28%;
         top: 0%;
+        color: #e80000a0;
+        font-weight: 700;
+    }
+    #error-bill-message{
+        position: absolute;
+        left: 32%;
+        top: 8%;
         color: #e80000a0;
         font-weight: 700;
     }
@@ -245,10 +261,17 @@
             top: 400px;
             
         }
+        
         .input-number label img {
             position: absolute;
             top: 10%;
             left: 10%;
             
+        }
+
+        #error-message{
+            position: absolute;
+            left: 30%;
+            top: 38%;
         }
     }

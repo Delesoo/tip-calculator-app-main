@@ -7,16 +7,22 @@ function setTipPercentage(percentage) {
 
 function calculateTip() {
   const billAmount = parseFloat(document.getElementById("bill").value);
+  const billAmountInput = document.getElementById("bill");
   const numberOfPeople = parseInt(document.getElementById("numberOfPeople").value);
   const numberOfPeopleInput = document.getElementById("numberOfPeople");
   const errorElement = document.getElementById("error-message");
+  const errorBillElement = document.getElementById("error-bill-message")
 
   if (isNaN(numberOfPeople) || numberOfPeople < 1) {
+    billAmountInput.style.outline = "2px solid #e80000a0";
     numberOfPeopleInput.style.outline = "2px solid #e80000a0";
-    errorElement.textContent = "Can't be zero"
+    errorElement.textContent = "Can't be zero";
+    errorBillElement.textContent = "Can't be zero";
   } else {
+    billAmountInput.style.outline = "none";
     numberOfPeopleInput.style.outline = "none";
     errorElement.textContent = "";
+    errorBillElement.textContent = "";
   }
 
   if (isNaN(billAmount) || isNaN(numberOfPeople) || numberOfPeople < 1){
@@ -34,16 +40,46 @@ function calculateTip() {
 function resetCalculator() {
   document.getElementById('bill').value = '';
   document.getElementById('numberOfPeople').value = '';
-  document.getElementById('tipAmount').textContent = '';
-  document.getElementById('amountPerPerson').textContent = '';
+  document.getElementById('tipAmount').textContent = '$0.00';
+  document.getElementById('amountPerPerson').textContent = '$0.00';
   document.getElementById('numberOfPeople').style.outline = ("");
+  document.getElementById('bill').style.outline = ("");
   document.getElementById('error-message').textContent = ("");
+  document.getElementById('error-bill-message').textContent = ("");
 }
+
+function restrictNegativeInput(input) {
+  input.addEventListener("keydown", function(e) {
+    if (e.key === "-" || e.key === "-") {
+      e.preventDefault();
+    }
+  });
+}
+
+const billInput = document.getElementById("bill");
+restrictNegativeInput(billInput);
+
+const numberOfPeopleInput = document.getElementById("numberOfPeople");
+restrictNegativeInput(numberOfPeopleInput);
+
 
 window.addEventListener("load", function () {
   const tipButtons = document.querySelectorAll(".tip-btn button");
   const customInput = document.getElementById("customInput");
 
+  const inputFields = document.querySelectorAll("input[type='number]");
+  inputFields.forEach(function (inputField){
+    inputField.addEventListener("keydown", function (event){
+      if (event.key === "+" || event.key === "-" || event.keyCode === 187 || event.keyCode === 189) {
+        event.preventDefault();
+      }
+    });
+
+  });
+
+  customInput.addEventListener("click", function (){
+    customInput.style.outline = "none";
+  })
   customInput.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
       const customPercentage = parseInt(customInput.value);
@@ -51,6 +87,8 @@ window.addEventListener("load", function () {
         setTipPercentage(customPercentage);
         customInput.value = "";
       }
+    } else {
+      customInput.style.outline = "none"
     }
   });
 
@@ -58,10 +96,22 @@ window.addEventListener("load", function () {
     button.addEventListener("click", function () {
       const percentage = parseInt(this.getAttribute("data-percentage"));
       setTipPercentage(percentage);
+
+      tipButtons.forEach(function(btn){
+        btn.classList.remove("active");
+      });
+      this.classList.add("active");
     });
   });
 
   const resetButton = document.getElementById("resetButton");
-  resetButton.addEventListener("click", resetCalculator);
+  resetButton.addEventListener("click", function(){
+    tipButtons.forEach(function(btn){
+      btn.classList.remove("active");
+    });
+
+    resetCalculator();
+  });
+
 
 });
