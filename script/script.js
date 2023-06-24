@@ -80,10 +80,10 @@ window.addEventListener("load", function () {
 
   });
 
-  customInput.addEventListener("click", function (){
+  customInput.addEventListener("keyup", function (){
     customInput.style.outline = "none";
   })
-  customInput.addEventListener("keyup", function (event) {
+  this.document.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
       const customPercentage = parseInt(customInput.value);
       if (!isNaN(customPercentage)) {
@@ -104,6 +104,7 @@ window.addEventListener("load", function () {
         btn.classList.remove("active");
       });
       this.classList.add("active");
+
 
     });
   });
