@@ -46,6 +46,7 @@ function resetCalculator() {
   document.getElementById('bill').style.outline = ("");
   document.getElementById('error-message').textContent = ("");
   document.getElementById('error-bill-message').textContent = ("");
+  document.getElementById("customInput").value = '';
 }
 
 function restrictNegativeInput(input) {
@@ -62,6 +63,8 @@ restrictNegativeInput(billInput);
 const numberOfPeopleInput = document.getElementById("numberOfPeople");
 restrictNegativeInput(numberOfPeopleInput);
 
+const customInput = document.getElementById("customInput");
+restrictNegativeInput(customInput);
 
 window.addEventListener("load", function () {
   const tipButtons = document.querySelectorAll(".tip-btn button");
@@ -86,7 +89,7 @@ window.addEventListener("load", function () {
       if (!isNaN(customPercentage)) {
         setTipPercentage(customPercentage);
         customInput.value = "";
-      }
+      } 
     } else {
       customInput.style.outline = "none"
     }
@@ -101,6 +104,7 @@ window.addEventListener("load", function () {
         btn.classList.remove("active");
       });
       this.classList.add("active");
+
     });
   });
 
