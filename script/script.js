@@ -51,7 +51,7 @@ function resetCalculator() {
 
 function restrictNegativeInput(input) {
   input.addEventListener("keydown", function(e) {
-    if (e.key === "-" || e.key === "-") {
+    if (e.key === "+" || e.key === "-") {
       e.preventDefault();
     }
   });
